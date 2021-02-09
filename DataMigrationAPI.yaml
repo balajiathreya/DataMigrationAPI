@@ -47,37 +47,33 @@ paths:
                 $ref: '#/components/schemas/Error'
   /data/migrate/daterange:
     post:
-        summary: 'Endpoint to migrate data for a given range'
-        operationId:migrateByDateRange
-        tags:
-            migrate
         parameters:
-        - name:indexname
+            - name:indexname
             in:query
             description:name of the ES index
             required:true
             schema:
                 type: string
-        - name:domain
+            - name:domain
             in:query
             description:name of the domain
             required:true
             schema:
                 type: string
-        - name:sortBy
+            - name:sortBy
             in:query
             description:name of the field in ES index to sort by
             required:true
             schema:
                 type: string
-        - name:rowLimit
+            - name:rowLimit
             in:query
             description:max no of rows to migrate
             required:true
             schema:
                 type: integer
                 format:int32
-        - name:fromDate
+            - name:fromDate
             in:query
             description:start date
             required:true
@@ -85,7 +81,7 @@ paths:
             schema:
                 type: string
                 format:date-time
-        - name:toDate
+            - name:toDate
             in:query
             description:end date
             required:true
@@ -97,20 +93,20 @@ paths:
 components:
         
   schemas:
-      ResponseOutput:
-        type:object
-        required:
-            - body
-            - statusMap
-        properties:
-            body:
-                type:object
-                additionalProperties:
-                    $ref: '#/components/Body'
-            statusMap:
-                type:object
-                additionalProperties:
-                    $ref: '#/components/StatusMap'
+    ResponseOutput:
+     type:object
+     required:
+        - body
+        - statusMap
+    properties:
+        body:
+            type:object
+            additionalProperties:
+                $ref: '#/components/Body'
+        statusMap:
+            type:object
+            additionalProperties:
+                $ref: '#/components/StatusMap'
 
     User:
       type: object
