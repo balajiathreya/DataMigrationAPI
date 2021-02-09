@@ -1,146 +1,146 @@
 openapi: 3.0.0
 info:
-	version: 1.0.0
-	title: DataMigration
-	contact:
-		email: bramani@apple.com
+  version: 1.0.0
+  title: DataMigration
+  contact:
+      email: bramani@apple.com
 servers:
 - url: 'http://localhost:8080/'
-    description: Development server
+  description: Development server
 - url: https://staging.acm.apple.com/v1
-	description: Staging server
+  description: Staging server
 - url: https://api.acm.apple.com/v1
-	description: Production server
-	
+  description: Production server
+  
 paths:
-	/data/migrate/daterange:
-		post:
-			summary: 'Sample endpoint: Returns details about a particular user'
-			operationId: migrateData
-			tags:
-				- migrate
-			parameters:
-				- name: indexname
-					in: query
-					description: name of the ES index
-					required: true
-					schema:
-						type: string
+  /data/migrate/daterange:
+    post:
+      summary: 'Sample endpoint: Returns details about a particular user'
+      operationId: migrateData
+      tags:
+        - migrate
+      parameters:
+        - name: indexname
+          in: query
+          description: name of the ES index
+          required: true
+          schema:
+            type: string
 
-				- name: domain
-					in: query
-					description: name of the ES domain
-					required: true
-					schema:
-						type: string
+        - name: domain
+          in: query
+          description: name of the ES domain
+          required: true
+          schema:
+            type: string
 
-				- name: sortBy
-					in: query
-					description: name of the field ES index to sort by
-					required: true
-					schema:
-						type: string
+        - name: sortBy
+          in: query
+          description: name of the field ES index to sort by
+          required: true
+          schema:
+            type: string
 
-				- name: plaintext
-					in: query
-					description: plaintext data
-					required: true
-					schema:
-						type: string
+        - name: plaintext
+          in: query
+          description: plaintext data
+          required: true
+          schema:
+            type: string
 
-				- name: rowLimit
-					in: query
-					description: max no of rows
-					required: true
-					schema:
-						type: integer
-						format: int32
+        - name: rowLimit
+          in: query
+          description: max no of rows
+          required: true
+          schema:
+            type: integer
+            format: int32
 
-				- name: fromDate
-					in: query
-					description: start date
-					required: true
-					schema:
-						type: string
-						format: date-time
-
-
-				- name: toDate
-					in: query
-					description: end date
-					required: true
-					schema:
-						type: string
-						format: date-time
-			responses:
-				'200':
-					description: 'Successful response for data migration by daterange'
-					content:
-						application/json:
-							schema:
-								$ref: '#/components/schemas/ResponseOutput'
-
-				'401':
-					description: 'Unauthorized error for data migration by daterange'
-					content:
-						application/json:
-							schema:
-								$ref: '#/components/schemas/Error'
+        - name: fromDate
+          in: query
+          description: start date
+          required: true
+          schema:
+            type: string
+            format: date-time
 
 
-				default:
-					description: Unexpected error
-					content:
-						application/json:
-							schema:
-								$ref: '#/components/schemas/Error'
+        - name: toDate
+          in: query
+          description: end date
+          required: true
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: 'Successful response for data migration by daterange'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseOutput'
+
+        '401':
+          description: 'Unauthorized error for data migration by daterange'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 
 components:
-	schemas:
-		User:
-			type: object
-			required:
-				- id
-				- name
-			properties:
-				id:
-					type: integer
-					format: int64
-				name:
-					type: string
-				tag:
-					type: string
-		
-		StatusMap:
-				type: object
-				additionalProperties: true
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+    
+    StatusMap:
+        type: object
+        additionalProperties: true
 
 
-		Body:
-				type: object
+    Body:
+        type: object
 
 
-		ResponseOutput:
-				type: object
-				required:
-						- body
-						- statusMap
-				properties:
-						body:
-								$ref: '#/components/schemas/Body'
-						statusMap:
-								$ref: '#/components/schemas/StatusMap'
-								
+    ResponseOutput:
+        type: object
+        required:
+            - body
+            - statusMap
+        properties:
+            body:
+                $ref: '#/components/schemas/Body'
+            statusMap:
+                $ref: '#/components/schemas/StatusMap'
+                
 
-		Error:
-			type: object
-			required:
-				- code
-				- message
-			properties:
-				code:
-					type: integer
-					format: int32
-				message:
-					type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
