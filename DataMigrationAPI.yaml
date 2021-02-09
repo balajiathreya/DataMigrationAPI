@@ -117,6 +117,17 @@ components:
         type: object
 
 
+    ResponseOutput:
+        type: object
+        required:
+            - body
+            - statusMap
+        properties:
+            body:
+                $ref: '#/components/schemas/Body'
+            statusMap:
+                $ref: '#/components/schemas/StatusMap'
+                
 
     Error:
       type: object
