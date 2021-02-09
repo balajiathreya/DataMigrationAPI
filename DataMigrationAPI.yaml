@@ -80,6 +80,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseOutput'
 
+        '401':
+          description: 'Unauthorized error for data migration by daterange'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
         default:
           description: Unexpected error
           content:
