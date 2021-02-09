@@ -113,7 +113,8 @@ components:
 
     StatusMap:
         type: object
-        additionalProperties:true
+        additionalProperties:
+            type:object
 
 
     Error:
