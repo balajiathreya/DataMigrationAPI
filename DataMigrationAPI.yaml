@@ -97,6 +97,14 @@ paths:
             format: date-time
 
 
+        - name: toDate
+          in: query
+          description: end date
+          required: true
+          schema:
+            type: string
+            format: date-time
+
 components:
         
   schemas:
