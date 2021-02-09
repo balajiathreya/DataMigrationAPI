@@ -47,49 +47,56 @@ paths:
                 $ref: '#/components/schemas/Error'
   /data/migrate/daterange:
     post:
-        parameters:
-            - name:indexname
-            in:query
-            description:name of the ES index
-            required:true
-            schema:
-                type: string
-            - name:domain
-            in:query
-            description:name of the domain
-            required:true
-            schema:
-                type: string
-            - name:sortBy
-            in:query
-            description:name of the field in ES index to sort by
-            required:true
-            schema:
-                type: string
-            - name:rowLimit
-            in:query
-            description:max no of rows to migrate
-            required:true
-            schema:
-                type: integer
-                format:int32
-            - name:fromDate
-            in:query
-            description:start date
-            required:true
-            example: "2021-01-30T08:30:00Z"
-            schema:
-                type: string
-                format:date-time
-            - name:toDate
-            in:query
-            description:end date
-            required:true
-            example: "2021-01-30T08:30:00Z"
-            schema:
-                type: string
-                format:date-time
-    
+      summary: 'Sample endpoint: Returns details about a particular user'
+      operationId: migrateData
+      tags:
+        - migrate
+      parameters:
+        - name: indexname
+          in: query
+          description: name of the ES index
+          required: true
+          schema:
+            type: string
+
+        - name: domain
+          in: query
+          description: name of the ES domain
+          required: true
+          schema:
+            type: string
+
+        - name: sortBy
+          in: query
+          description: name of the field ES index to sort by
+          required: true
+          schema:
+            type: string
+
+        - name: plaintext
+          in: query
+          description: plaintext data
+          required: true
+          schema:
+            type: string
+
+        - name: rowLimit
+          in: query
+          description: max no of rows
+          required: true
+          schema:
+            type: integer
+            format: int32
+
+        - name: fromDate
+          in: query
+          description: start date
+          required: true
+          schema:
+            type: string
+            format: date-time
+
+
 components:
         
   schemas:
