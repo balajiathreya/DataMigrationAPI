@@ -5,6 +5,9 @@ info:
   contact:
       email: bramani@apple.com
 servers:
+# Added by API Auto Mocking Plugin
+- description: SwaggerHub API Auto Mocking
+  url: https://virtserver.swaggerhub.com/athreya86/DataMigration/1.0.0
 - url: 'http://localhost:8080/'
   description: Development server
 - url: https://staging.acm.apple.com/v1
@@ -111,14 +114,6 @@ components:
           type: string
         tag:
           type: string
-    
-    StatusMap:
-        type: object
-        additionalProperties: true
-
-
-    Body:
-        type: object
 
 
     ResponseOutput:
@@ -128,9 +123,12 @@ components:
             - statusMap
         properties:
             body:
-                $ref: '#/components/schemas/Body'
+                 type: object
             statusMap:
-                $ref: '#/components/schemas/StatusMap'
+                  type: object
+                  additionalProperties:
+                     type: object
+                
                 
 
     Error:
