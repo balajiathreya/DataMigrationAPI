@@ -122,7 +122,8 @@ components:
           type: string
 
     Body:
-        type:object
+        type: object
+        
 
     Error:
       type: object
