@@ -109,8 +109,7 @@ components:
           type: string
     StatusMap:
         type: object
-        additionalProperties:
-            type:object
+        additionalProperties: true
 
 
     Error:
