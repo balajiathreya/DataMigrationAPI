@@ -107,10 +107,6 @@ components:
           type: string
         tag:
           type: string
-
-    Body:
-        type: object
-
     StatusMap:
         type: object
         additionalProperties:
