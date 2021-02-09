@@ -107,9 +107,15 @@ components:
           type: string
         tag:
           type: string
+    
     StatusMap:
         type: object
         additionalProperties: true
+
+
+    Body:
+        type: object
+
 
 
     Error:
