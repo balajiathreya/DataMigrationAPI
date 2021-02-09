@@ -74,16 +74,12 @@ paths:
             format: date-time
       responses:
         '200':
-          description: 'Sample response: Details about a user by ID'
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
+          description: 'Successful response for data migration by daterange'
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ResponseOutput'
+
         default:
           description: Unexpected error
           content:
