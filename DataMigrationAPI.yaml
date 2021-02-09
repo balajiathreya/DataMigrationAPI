@@ -123,7 +123,10 @@ components:
 
     Body:
         type: object
-        
+
+    StatusMap:
+        type: object
+
 
     Error:
       type: object
