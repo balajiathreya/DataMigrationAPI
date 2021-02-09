@@ -106,23 +106,7 @@ paths:
             format: date-time
 
 components:
-        
   schemas:
-    ResponseOutput:
-     type:object
-     required:
-        - body
-        - statusMap
-    properties:
-        body:
-            type:object
-            additionalProperties:
-                $ref: '#/components/Body'
-        statusMap:
-            type:object
-            additionalProperties:
-                $ref: '#/components/StatusMap'
-
     User:
       type: object
       required:
