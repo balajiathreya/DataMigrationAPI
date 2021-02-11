@@ -9,7 +9,7 @@ servers:
 - description: SwaggerHub API Auto Mocking
   url: https://virtserver.swaggerhub.com/athreya86/DataMigration/1.0.0
 - url: 'http://localhost:8080/'
-  description: Development server 1
+  description: Development server 2
 - url: https://staging.acm.apple.com/v1
   description: Staging server 1
 - url: https://api.acm.apple.com/v1
