@@ -9,9 +9,9 @@ servers:
 - description: SwaggerHub API Auto Mocking
   url: https://virtserver.swaggerhub.com/athreya86/DataMigration/1.0.0
 - url: 'http://localhost:8080/'
-  description: Development server
+  description: Development server 1
 - url: https://staging.acm.apple.com/v1
-  description: Staging server
+  description: Staging server 1
 - url: https://api.acm.apple.com/v1
   description: Production server
   
@@ -75,7 +75,7 @@ paths:
           schema:
             type: string
             format: date-time
-            
+
       responses:
         '200':
           description: 'Successful response for data migration by daterange'
